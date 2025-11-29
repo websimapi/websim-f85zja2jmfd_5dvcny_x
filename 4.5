@@ -1,0 +1,17 @@
+export class HomingBomb {
+    constructor(x, y, baseDamage = 6, game) {
+        this.x = x;
+        this.y = y;
+        this.speed = 5;
+        this.radius = 8;
+        this.life = 300; // frames safety
+        this.target = null;
+        this.baseDamage = baseDamage;
+        this.game = game;
+        this.exploded = false;
+        // set explosion radius to 4.5 times the bomb radius for a 4.5 AOE
+        this.explosionRadius = this.radius * 4.5;
+        this.vx = 0;
+        this.vy = 0;
+    }
+

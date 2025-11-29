@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Zombie Shooter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div id="ui">
+            <div id="score">Score: <span id="scoreValue">0</span></div>
+            <div id="coins">Coins: <span id="coinsValue">0</span></div>
+            <div id="wave">Wave: <span id="waveValue">1</span></div>
+            <div id="health">Health: <span id="healthValue">5</span>/5</div>
+            <div id="ammo">Ammo: <span id="ammoValue">8</span>/8</div>
+            <div id="shards">Shards: <span id="shardsValue">0</span></div>
+            <button id="bombButton">BOMB</button>
+            <button id="shopButton">SHOP</button>
+            <!-- Auto bomb toggle -->
+            <label style="display:flex;align-items:center;gap:8px;margin-left:8px;color:#FFD700;font-weight:bold;">
+                <input type="checkbox" id="autoBombToggle">
+                Auto Bomb
+            </label>
+        </div>
+        <!-- Instructions / Standards overlay (shown at startup) -->
+        <div id="instructionsOverlay" class="instructions-overlay">
+            <div class="instructions-card">
+                <h1>Welcome to Zombie Shooter</h1>
+                <p>Objective: Survive waves of zombies, earn coins, and upgrade your loadout.</p>
+                <h3>Controls</h3>
+                <ul>
+                    <li>Shoot: Space / Enter / SHOOT button / Tap</li>
+                    <li>Reload: R / RELOAD button / Swipe up (mobile)</li>
+                    <li>Homing Bomb: B / BOMB button (2.5s cooldown)</li>
+                    <li>Toggle Auto Bomb: Use the Auto Bomb checkbox</li>
+                </ul>
+                <h3>Standards & Accessibility Notes</h3>
+                <ul>
+                    <li>Clean UI, high contrast text, simple controls.</li>
+                    <li>No flashing background animations to reduce seizure risk.</li>
+                    <li>Mobile and desktop both supported; touch gestures enabled.</li>
+                </ul>
+                <div class="instructions-actions">
+                    <button id="startGameButton" class="primary">Start Game</button>
+                    <button id="viewControlsButton" class="secondary">Close & Continue</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom controls for shoot/reload (single source of truth for desktop+mobile) -->
+        <div id="bottomControls">
+            <button id="shootButton" class="mobile-button">SHOOT</button>
+            <button id="reloadButton" class="mobile-button">RELOAD</button>
+        </div>
+
+        <div id="gameOver" class="hidden">
+            <h2>Game Over!</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <button id="restartButton">Restart</button>
+        </div>
+        <!-- Wave break overlay will be added dynamically -->
+    </div>
+    <script type="module" src="game.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
